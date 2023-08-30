@@ -70,7 +70,6 @@ function App() {
 
   function checkLoggedIn() {
     return localStorage.getItem("token");
-    // setLoggedIn(true);
   }
   React.useEffect(() => {
     const handleResize = () => {
@@ -105,9 +104,9 @@ function App() {
     localStorage.setItem("username", currentUser.name);
   }, [currentUser.name]);
   function onSignUp(data) {
-    const { username, email, password } = data; // Keep the property name as "username"
+    const { username, email, password } = data;
     authApi
-      .register({ name: username, email, password }) // Use "username" property as "name"
+      .register({ name: username, email, password })
       .then(() => {
         handleTooltipOpen(true);
       })
@@ -129,8 +128,6 @@ function App() {
         setLoggedIn(true);
         localStorage.setItem("token", res.jwt);
         handleTooltipOpen(false);
-
-        // Fetch and set the updated profile data after successful sign-in
         authApi
           .getProfileData()
           .then((data) => {
@@ -163,7 +160,21 @@ function App() {
       setLoading(true);
       const data = await api.getData(search);
       const slicedData = data.articles.slice(0, numCardsToShow);
-      return slicedData; // Return the sliced data
+  
+      // Filter out articles with null values for specific properties
+      const filteredData = slicedData.filter(article => 
+        article.author !== null &&
+        article.content !== null &&
+        article.description !== null &&
+        article.publishedAt !== null &&
+        article.source.id !== null &&
+        article.source.name !== null &&
+        article.title !== null &&
+        article.url !== null &&
+        article.urlToImage !== null
+      );
+  
+      return filteredData;
     } catch (error) {
       console.log("Error fetching data:", error);
       return []; // Return an empty array in case of an error
@@ -171,6 +182,7 @@ function App() {
       setLoading(false);
     }
   }
+  
 
   function searchSubmit(search) {
     if (searchQuery === search) {
