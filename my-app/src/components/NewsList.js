@@ -11,6 +11,9 @@ function NewsList({
   onAddPlace,
   cards,
   setCards,
+  isBookmarked,
+  setIsBookmarked,
+  onLogin,
 }) {
   function handleShowMore() {
     addSearch(searchQuery);
@@ -20,7 +23,6 @@ function NewsList({
   const hasCardData = newsData.length > 0;
   return (
     <section id="newslistSection" className="newslist">
-      
       <h3
         className={`newslist__subtitle ${
           hasCardData ? "newslist__subtitle_visible" : ""
@@ -28,7 +30,7 @@ function NewsList({
       >
         Search results
       </h3>
-      
+
       <div className="newslist__wrapper">
         {loading ? (
           <div className="newslist__preloader">
@@ -42,6 +44,19 @@ function NewsList({
               }`}
             >
               {newsData.map((item) => {
+                const existingCard = cards.find(
+                  (card) => card.text === item.description
+                );
+                const isBookmarked = !!existingCard;
+
+                // Assuming you have a function like `setBookmark` to handle bookmark updates
+                const handleBookmark = () => {
+                  if (existingCard) {
+                    // Set bookmark to true here
+                    setIsBookmarked(true);
+                  }
+                };
+
                 return (
                   <Card
                     cards={cards}
@@ -51,6 +66,9 @@ function NewsList({
                     onAddPlace={onAddPlace}
                     cardData={item}
                     loggedIn={loggedIn}
+                    isBookmarked={isBookmarked}
+                    handleBookmark={handleBookmark}
+                    onLogin={onLogin} // Pass the bookmark handling function to the Card component
                   />
                 );
               })}

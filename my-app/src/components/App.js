@@ -31,6 +31,7 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [noArticles, setNoArticles] = React.useState(false);
   const [isMenuOpen, setMenuOpen] = React.useState(false);
+  const [isBookmarked, setIsBookmarked] = React.useState(false);
   const [isMobile, setMobile] = React.useState(() => {
     if (window.innerWidth < 768) {
       return true;
@@ -161,7 +162,6 @@ function App() {
       const data = await api.getData(search);
       const slicedData = data.articles.slice(0, numCardsToShow);
   
-      // Filter out articles with null values for specific properties
       const filteredData = slicedData.filter(article => 
         article.author !== null &&
         article.content !== null &&
@@ -177,7 +177,7 @@ function App() {
       return filteredData;
     } catch (error) {
       console.log("Error fetching data:", error);
-      return []; // Return an empty array in case of an error
+      return [];
     } finally {
       setLoading(false);
     }
@@ -332,6 +332,9 @@ function App() {
                       cards={cards}
                       setCards={setCards}
                       loggedIn={loggedIn}
+                      setIsBookmarked={setIsBookmarked}
+                      isBookmarked={isBookmarked}
+                      onLogin={handleLogin}
                     />
                     <Author />
                     <Footer />
