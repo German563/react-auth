@@ -48,7 +48,6 @@ function Login(props) {
   }
 
   return (
-    <>
       <PopupWithForm
         areInputsValid={areInputsValid}
         email={email}
@@ -93,7 +92,6 @@ function Login(props) {
           {passwordError && <label className="popup__error">{passwordError}</label>}
         </div>
       </PopupWithForm>
-    </>
   );
 }
 

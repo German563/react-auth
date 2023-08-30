@@ -42,39 +42,39 @@ function PopupWithForm({
           <button type="button" className="popup__close" onClick={onClose} />
           <h2 className="popup__title">{title}</h2>
           {children}
-<div className="popup__buttomwrapper">
-<button
-            type="submit"
-            className={`popup__button ${
-              areInputsValid ? "" : "popup__button_disable"
-            }`}
-          >
-            {submitButtonText}
-          </button>
-          {submitButtonText === "Sign up" ? (
-            <div className="popup__bottomwrapper">
-              or{" "}
-              <button
-                type="button"
-                className="popup__bottomlink"
-                onClick={onLogin}
-              >
-                Sign in
-              </button>
-            </div>
-          ) : (
-            <div className="popup__bottomwrapper">
-              or{" "}
-              <button
-                type="button"
-                className="popup__bottomlink"
-                onClick={onRegister}
-              >
-                Sign up
-              </button>
-            </div>
-          )}
-</div>
+          <div className="popup__buttomwrapper">
+            <button
+              type="submit"
+              className={`popup__button ${
+                areInputsValid ? "" : "popup__button_disable"
+              }`}
+            >
+              {submitButtonText}
+            </button>
+            {submitButtonText === "Sign up" ? (
+              <div className="popup__bottomwrapper">
+                or{" "}
+                <button
+                  type="button"
+                  className="popup__bottomlink"
+                  onClick={onLogin}
+                >
+                  Sign in
+                </button>
+              </div>
+            ) : (
+              <div className="popup__bottomwrapper">
+                or{" "}
+                <button
+                  type="button"
+                  className="popup__bottomlink"
+                  onClick={onRegister}
+                >
+                  Sign up
+                </button>
+              </div>
+            )}
+          </div>
         </form>
       </div>
     </div>

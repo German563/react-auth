@@ -28,9 +28,7 @@ function Main(props) {
               value={search}
               onChange={handleSearchValue}
             />
-            <button className="main__button" onClick={handleSearchSubmit}>
-              Search
-            </button>
+            <button className="main__button">Search</button>
           </form>
         </div>
       </div>
