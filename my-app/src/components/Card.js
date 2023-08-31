@@ -87,7 +87,6 @@ function Card({
           setCards((newCards) =>
             newCards.filter((c) => c._id !== existingCard._id)
           );
-          setIsBookmarked(false);
         })
         .catch((err) => {
           console.log(err);
@@ -98,7 +97,6 @@ function Card({
         .then((newCardData) => {
           const newCards = [newCardData.data, ...cards];
           setCards(newCards);
-          setIsBookmarked(true);
         })
         .catch((err) => {
           console.log(err);

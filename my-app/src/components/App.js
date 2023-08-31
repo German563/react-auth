@@ -160,9 +160,20 @@ function App() {
     try {
       setLoading(true);
       const data = await api.getData(search);
-      const slicedData = data.articles.slice(0, numCardsToShow);
-  
-      const filteredData = slicedData.filter(article => 
+      const filteredData = filterData(data);
+      const slicedData = sliceData(filteredData);
+      return slicedData;
+    } catch (error) {
+      console.log("Error fetching data:", error);
+      return [];
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function filterData(data) {
+    return data.articles.filter(
+      (article) =>
         article.author !== null &&
         article.content !== null &&
         article.description !== null &&
@@ -172,17 +183,12 @@ function App() {
         article.title !== null &&
         article.url !== null &&
         article.urlToImage !== null
-      );
-  
-      return filteredData;
-    } catch (error) {
-      console.log("Error fetching data:", error);
-      return [];
-    } finally {
-      setLoading(false);
-    }
+    );
   }
-  
+
+  function sliceData(data) {
+    return data.slice(0, numCardsToShow);
+  }
 
   function searchSubmit(search) {
     if (searchQuery === search) {
@@ -217,7 +223,7 @@ function App() {
     },
     [fetchData, setNoArticles, setNewsData]
   );
-  
+
   React.useEffect(() => {
     fetchDataFunction(searchQuery);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -271,10 +277,14 @@ function App() {
       <div className="body">
         <CurrentUserContext.Provider value={currentUser}>
           <div className={"page"}>
-          <div className={`page__background ${isBackPopupOpen ? 'page__background_opened' : ''}`}></div>
+            <div
+              className={`page__background ${
+                isBackPopupOpen ? "page__background_opened" : ""
+              }`}
+            ></div>
             <header className="header">
               <Header
-              isBackPopupOpen={isBackPopupOpen}
+                isBackPopupOpen={isBackPopupOpen}
                 prepareHamburger={prepareHamburger}
                 setLoggedIn={setLoggedIn}
                 onLogin={handleLogin}
