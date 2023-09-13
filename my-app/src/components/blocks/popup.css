@@ -1,0 +1,268 @@
+.popup__close {
+  background: transparent url(../../images/Close_icon-40px.png) center no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  right: -40px;
+  top: -45px;
+  padding: 0;
+  cursor: url("../../images/lapka.png"), auto;
+}
+.popup__label {
+  color: #2F71E5;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.popup__buttomwrapper {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 23px;
+
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  width: calc(430px - 36px);
+  /* min-height: 380px; */
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(167px);
+  background: white;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 0 0px 0px 36px;
+  z-index: 2;
+}
+
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__title {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  margin-top: 34px;
+  width: 330px;
+  margin-top: 34px;
+  margin-bottom: 22px;
+}
+
+.popup__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2em;
+  width: 358px;
+  padding: 0;
+  display: block;
+  padding-bottom: 9px;
+}
+.popup__input::placeholder {
+  color: black;
+  opacity: 0.2;
+}
+.popup__error {
+  display: block;
+  text-align: left;
+  width: 358px;
+  height: 10px;
+  padding-bottom: 6px;
+  font-family: Inter, Arial, Helvetica, sans-serif;;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+}
+
+.popup__error_visible {
+  visibility: visible;
+}
+
+.popup__button {
+  background-color: #2f71e5;
+  color: white;
+  font-family: Inter, Arial, Helvetica, sans-serif;;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2em;
+  text-align: center;
+  border-radius: 2px;
+  width: 358px;
+  height: 64px;
+  margin-top: calc(48px - 29px);
+  cursor: url("../../images/lapka.png"), auto;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0px 5px 15px 0px rgba(14, 26, 57, 0.20);
+}
+
+.popup__button_disable {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  pointer-events: none;
+  border: none;
+  box-shadow: none;
+}
+
+.popup__button:hover {
+  opacity: 0.8;
+}
+
+.popup__container-tooltip {
+  display: flex;
+  flex-direction: column;
+}
+.popup__tooltip-title {
+  font-family: Roboto, Arial, Helvetica, sans-serif;;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: left;
+  margin-bottom: 0;
+  color: #000000;
+  margin-top: 43px;
+}
+.popup__bottomwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 16px;
+  flex-shrink: 0;
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 358px;
+  padding: 0 0 28px 0;
+}
+.popup__error {
+  position: relative;
+  z-index: 1;
+  color: #f00;
+  font-family: Inter, Arial, Helvetica, sans-serif;;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.popup__tooltip {
+  margin-bottom: 10px;
+  z-index: 3;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+.popup__bottomlink {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #2f71e5;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: url("../../images/lapka.png"), auto;
+}
+.popup__bottomlink-error {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #2f71e5;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: url("../../images/lapka.png"), auto;
+  text-align: left;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .popup {
+    position: fixed;
+    top: 56px;
+    width: 320px;
+    min-height: 560px;
+    z-index: 4;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .popup__bottomlink-error {
+  padding: 0 0 0 16px;
+  }
+  .popup__container {
+    padding-left: 16px;
+    z-index: 4;
+  }
+
+  .popup__button {
+    width: 288px;
+    margin-top: 23px;
+  }
+
+  .popup__input {
+    margin-top: -2px;
+    width: 288px;
+    padding-bottom: 8px;
+  }
+
+  .popup__title {
+    margin: 16px 0 18px 1px;
+  }
+  .popup__close {
+    width: 24px;
+    height: 24px;
+    right: 10px;
+    top: -40px;
+    padding: 0;
+  }
+  .popup__tooltip {
+    margin-bottom: 10px;
+    z-index: 6;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+  }
+  .popup__bottomwrapper { 
+  width: 288px;
+  }
+  .popup__close {
+    background: transparent url(../../images/Close_icon-24px.svg) center no-repeat;
+  }
+}

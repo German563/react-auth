@@ -1,0 +1,304 @@
+.card {
+  position: relative;
+  width: 400px;
+  height: 576px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.card__info {
+  padding-left: 24px;
+}
+.card__image {
+  width: 400px;
+  height: 272px;
+  border-radius: 20px 20px 0 0;
+}
+.card__imagewrapper {
+  min-height: 272px;
+  background-color: transparent;
+}
+.card__publishedat {
+  color: #b6bcbf;
+  font-family:"Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  padding-left: 24px;
+}
+.card__title {
+  color: #1A1B22;
+  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0px;
+  margin: 0;
+  text-align: left;
+  width: 352px;
+  max-height: 117px;
+  white-space: normal;
+  overflow: hidden;
+}
+.card__source {
+  position: absolute;
+  color: #b6bcbf;
+  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  bottom: 24px;
+  margin: 0;
+}
+.card__line {
+  display: none;
+}
+.card__line_visible {
+  margin: 0 auto;
+  margin-top: 64px;
+  justify-content: center;
+  max-width: 1260px;
+  flex-wrap: wrap;
+  display: flex;
+}
+.card__description {
+  width: 352px;
+  white-space: normal;
+  overflow: hidden;
+  position: relative;
+  color: #1a1b22;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  max-height: 90px;
+}
+.card__savetag {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 24px;
+  right: 24px;
+  position: absolute;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: url("../../images/lapka.png"), auto;
+}
+.card__deletetagimage {
+  opacity: 0.5;
+}
+.card__deletetagimage:hover {
+  opacity: 1;
+}
+.card__savetag:hover .card__savetagimage {
+  opacity: 1;
+}
+.card__savetagimage {
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+}
+
+.card__sighintag {
+  z-index: 1;
+  opacity: 0;
+  width: 182px;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  margin-top: 24px;
+  margin-left: 149px;
+}
+.card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  min-width: 55px;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  border-radius: 8px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  padding: 0 22px;
+}
+.card__keyword_active {
+  display: flex;
+}
+.card__deletetext {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 69px;
+  width: 159px;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0em;
+}
+
+.card__wrapper:hover .card__deletetext {
+  display: flex;
+}
+.card_hidden {
+  opacity: 0;
+}
+.card__keyword {
+  pointer-events: none;
+}
+
+.card__wrapper:hover .card__sighintag {
+  opacity: 1;
+}
+@media only screen and (min-width: 768px) and (max-width: 1090px) {
+  .card {
+    width: 224px;
+    height: 420px;
+  }
+  .card__info {
+    padding: 0 16px;
+  }
+  .card__source {
+    margin: 0;
+    bottom: 16px;
+    left: 16px;
+  }
+  .card__image {
+    width: 224px;
+    height: 150px;
+  }
+  .card__imagewrapper {
+    min-height: 156px;
+    background-color: transparent;
+  }
+  .card__publishedat {
+    margin-top: 3px;
+    padding-left: 16px;
+    margin-bottom: 8px;
+  }
+  .card__title {
+    display: block;
+    width: 193px;
+    height: 72px;
+    white-space: normal;
+    overflow: hidden;
+    position: relative;
+    line-height: 24px;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .card__description {
+    width: 193px;
+    white-space: normal;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 12px;
+    max-height: none;
+    height: 90px;
+  }
+  .card__savetag {
+    top: 8px;
+    right: 8px;
+  }
+  .card__sighintag {
+    margin-left: 10px;
+    margin-top: 8px;
+    width: 145px;
+  }
+  .card__keyword {
+    max-width: 65px;
+    top: 8px;
+    left: 8px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .card {
+    width: 288px;
+    height: 440px;
+    margin-left: 16px;
+  }
+  .card__sighintag {
+    margin: 24px 0 0 24px ;
+  }
+  .card__publishedat {
+    margin-top: 4px;
+    padding-left: 16px;;
+  }
+  .card__title {
+    position: relative;
+    top: -4px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    max-height: 70px;
+  }
+  .card__image {
+    height: 196px;
+    min-height: 196px;
+  }
+  .card__imagewrapper {
+    min-height: 196px;
+    background-color: transparent;
+  }
+  .card__title {
+    width: 256px;
+    max-height: 48px;
+  }
+  .card__info {
+    padding-left: 16px;
+  }
+  .card__description {
+    width: 256px;
+    position: relative;
+    top: 2px;
+    margin: 0;
+    max-height: 88px;
+  }
+
+  .card__source {
+    bottom: 16px;
+    left: 16px;
+    margin: 0;
+  }
+  .footer__wrapper {
+    width: auto;
+  }
+}
